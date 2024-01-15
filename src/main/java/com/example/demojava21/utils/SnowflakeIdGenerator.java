@@ -54,8 +54,6 @@ public class SnowflakeIdGenerator {
       System.out.println("生成的 ID: " + id);
     }
     System.out.println("回生成是多少收到的方式 I");
-    System.out.println( "回生成是多少收到的方式 I");
-    System.out.println("回生成是多少收到的方式 I");
   }
   // 写一个雪花算法
 
