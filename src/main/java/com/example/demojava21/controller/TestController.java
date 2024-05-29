@@ -83,20 +83,30 @@ public class TestController {
 
   @GetMapping("/checkValueInSet")
   @ResponseBody
-  public String checkValueInSet() {
+  public String checkValueInSet(@RequestParam String value) {
     String key = "uniqueDataSet";
-    String value = "40481706256997173423";
-    /*        boolean isInSet = redisService.checkIfInSet(key, value);
-    return isInSet ? "值存在于集合中" : "值不在集合中";*/
+
 
     // 获取开始时间
     long startTime = System.currentTimeMillis();
-    long isInSet = redisService.checkIfInSetAdd(key, value);
+    // long isInSet = redisService.checkIfInSetAdd(key, value);
+    boolean isInSet = redisService.checkIfInSet(key, value);
+
     // 获取结束时间
     long endTime = System.currentTimeMillis();
     // 计算并打印所需时间
     long duration = endTime - startTime;
     System.out.println("执行方法耗时：" + duration + " 毫秒");
-    return isInSet == 1 ? "值不存在于集合中" : "值存在集合中";
+    //return isInSet == 1 ? "值不存在于集合中" : "值存在集合中";
+
+    return isInSet ? "值存在于集合中" : "值不在集合中";
+
   }
+
+  @GetMapping("/checkValueInSet1")
+  @ResponseBody
+  public String checkValueInSet1(@RequestParam String id,@RequestParam String name) {
+   return id+name;
+  }
+
 }

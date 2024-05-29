@@ -16,6 +16,10 @@ public class TestAnimal {
 
         myAnimal = new Cat();
         myAnimal.sound(); // 输出 "喵喵喵！"
+
+        if(2==2 && 2==2 || 3==1){
+            System.out.println("1==2 && 2==2");
+        }
     }
 
 }
