@@ -76,10 +76,29 @@ public class TestController {
 
   @GetMapping("/createSet")
   public String createSet() {
-    String setName = "uniqueDataSet";
+    String setName = "uniqueDataSethaha";
+    //输出开始时间
+    long startTime = System.currentTimeMillis();
     redisService.createSetWithTenThousandEntries(setName);
+    //输出结束时间
+    long endTime = System.currentTimeMillis();
+    //计算并打印所需时间
+    long duration = endTime - startTime;
+    System.out.println("执行方法耗时：" + duration + " 毫秒");
     return "Created SET with 600,000 unique entries";
   }
+  @GetMapping("/createSet1")
+    public String createSet1() throws InterruptedException {
+    //输出开始时间
+    long startTime = System.currentTimeMillis();
+    redisService.createSetWithTenThousandEntriesHr("uniqueDataSethrniu1");
+    //输出结束时间
+    long endTime = System.currentTimeMillis();
+    //计算并打印所需时间
+    long duration = endTime - startTime;
+    System.out.println("执行方法耗时：" + duration + " 毫秒");
+        return "createSet1";
+    }
 
   @GetMapping("/checkValueInSet")
   @ResponseBody
