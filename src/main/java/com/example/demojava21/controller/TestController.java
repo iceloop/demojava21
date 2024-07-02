@@ -34,6 +34,7 @@ public class TestController {
   @RequestMapping("/getbussinessno")
   public Object get1(@RequestParam(value = "bussinessNo") String bussinessNo) throws Exception {
     System.out.println(bussinessNo);
+    System.out.println();
     System.out.println(Thread.currentThread().toString());
     System.out.println(Thread.currentThread().isVirtual());
     return HttpStatus.OK;
